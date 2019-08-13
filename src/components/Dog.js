@@ -1,10 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Dog() {
-  const name = 'Rover';
-  const age = 5;
-  const weight = '30lbs';
-
+function Dog({ name, age, weight }) {
   return (
     <>
       <h2>{name}</h2>
@@ -13,3 +10,11 @@ export default function Dog() {
     </>
   );
 }
+
+Dog.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  weight: PropTypes.string.isRequired
+};
+
+export default Dog;
