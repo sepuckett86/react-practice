@@ -1,5 +1,5 @@
 import React from 'react';
-import './ColorChanger.css';
+import './colorChanger.css';
 
 export default function ColorChanger() {
   return (
