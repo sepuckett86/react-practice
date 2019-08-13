@@ -1,12 +1,12 @@
 import React from 'react';
-import Color from './Color';
+import Playground from './Playground';
 import Header from './Header';
 
 export default function App() {
   return (
     <>
       <Header />
-      <Color />
+      <Playground />
     </>
   );
 }
