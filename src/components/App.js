@@ -6,7 +6,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <Playground color1="blue" color2="red"/>
+      <Playground color1="red" color2="blue"/>
     </>
   );
 }

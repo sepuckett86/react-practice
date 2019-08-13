@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 function HookTest({ color1, color2 }) {
   const [color, setColor] = useState(color1);
 
-  const style = {
-    color: color
-  };
+  const style = { color };
 
   return (
     <div>
