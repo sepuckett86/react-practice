@@ -1,11 +1,19 @@
 import React from 'react';
 import ColorChanger from './ColorChanger';
+import PropTypes from 'prop-types';
+import HookTest from './HookTest';
 
-export default function Playground() {
+function Playground({ ...props }) {
   return (
     <>
-      <ColorChanger />
-      <ColorChanger />
+      <ColorChanger {...props} />
+      <HookTest {...props}/>
     </>
   );
 }
+
+Playground.propTypes = {
+  color: PropTypes.string.isRequired
+};
+
+export default Playground;

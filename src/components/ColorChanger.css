@@ -10,7 +10,7 @@
   }
 }
 
-.colorChanger {
+.test {
   animation: colorChanger 1s infinite;
   height: 0.8rem;
   width: 0.8rem;
