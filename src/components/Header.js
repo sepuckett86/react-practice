@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <h1>COLOR</h1>
+    <h1>RANDOM COLOR</h1>
   );
 }
