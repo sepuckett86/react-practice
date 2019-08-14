@@ -1,6 +1,7 @@
 import React from 'react';
 import Color from './Color';
 import Header from './Header';
+import ColorPicker from './ColorPicker';
 
 export default function App() {
   const color = {
@@ -17,6 +18,7 @@ export default function App() {
     <>
       <Header />
       <Color name={color.name} hex={color.hex} rgb={color.rgb} />
+      <ColorPicker colors={['red', 'blue', 'yellow']}/>
     </>
   );
 }
