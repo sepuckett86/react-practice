@@ -1,26 +1,27 @@
-import React from 'react';
-import Color from './Color';
+import React, { Component } from 'react';
 import Header from './Header';
 import ColorPicker from './ColorPicker';
-import Incrementer from './Incrementer';
+import ColorPickerDisplay from './ColorPickerDisplay';
 
-export default function App() {
-  const color = {
-    name: 'Purple',
-    hex: '#7b42f5',
-    rgb: {
-      red: 123,
-      green: 66,
-      blue: 245
-    }
-  };
+export default class App extends Component {
+  state = {
+    color: 'white'
+  }
 
-  return (
-    <>
-      <Header />
-      <Color name={color.name} hex={color.hex} rgb={color.rgb} />
-      <ColorPicker colors={['red', 'blue', 'yellow']}/>
-      <Incrementer />
-    </>
-  );
+  clickHandler = color => {
+    this.setState({ color });
+  }
+
+  render() {
+    const colors = ['red', 'blue', 'yellow'];
+
+    return (
+      <>
+        <Header />
+        <ColorPicker colors={colors} setColor={this.clickHandler} />
+        <ColorPickerDisplay color={this.state.color} />
+      </>
+    );
+  }
 }
+

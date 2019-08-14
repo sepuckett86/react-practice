@@ -4,33 +4,21 @@ import styles from './ColorPicker.css';
 
 export default class ColorPicker extends Component {
   static propTypes = {
-    colors: PropTypes.arrayOf(PropTypes.string).isRequired
+    colors: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    setColor: PropTypes.func.isRequired
   }
-
-  state = {
-    color: 'white'
-  }
-
-  colorHandler = color => {
-    this.setState({ color });
-  }
-
+  
   render() {
-    const { colors } = this.props;
-
-    const colorElements = colors.map(color => {
+    const { colors, setColor } = this.props;
+    const colorList = colors.map(color => {
       return (
-        <button key={color} className={styles[color]} onClick={() => this.colorHandler(color)}>{color}</button>
+        <button onClick={() => setColor(color)} key={color} className={styles[color]}>{color}</button>
       );
     });
-    
-    const divClasses = styles.shape + ' ' + styles[this.state.color];
-
     return (
       <>
-        {colorElements}
-        <div className={divClasses}></div>
+        {colorList}
       </>
     );
   }
-} 
+}
