@@ -1,32 +1,12 @@
 import React from 'react';
-import Colors from './Colors';
+import PhotoAlbum from './PhotoAlbum';
 
 export default function App() {
-  const colors = [{
-    name: 'Red',
-    hex: '#FF0000',
-    rgb: {
-      r: 255,
-      g: 0,
-      b: 0
-    }
-  }, {
-    name: 'Blue',
-    hex: '#0000FF',
-    rgb: {
-      r: 0,
-      g: 0,
-      b: 255
-    }
-  }, {
-    name: 'Green',
-    hex: '#008000',
-    rgb: {
-      r: 0,
-      g: 128,
-      b: 0
-    }
-  }];
+  const photos = [
+    'https://cdn.pixabay.com/photo/2018/08/28/21/01/panama-3638527_1280.jpg',
+    'https://cdn.pixabay.com/photo/2014/07/31/22/40/sloth-407042_1280.jpg',
+    'https://cdn.pixabay.com/photo/2015/04/20/13/25/sloth-731297_1280.jpg'
+  ];
 
-  return <Colors colors={colors}/>;
+  return <PhotoAlbum title="Sloths" photos={photos}/>;
 }
