@@ -1,0 +1,6 @@
+.Photo {
+  height: 200px;
+  object-fit: cover;
+  width: 300px;
+  border: 10px inset pink;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Photos from './Photos';
+import './PhotoAlbum.css';
 
 function PhotoAlbum({ title, photos }) {
   return (

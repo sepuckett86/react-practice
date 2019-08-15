@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Photo from './Photo';
+import './Photos.css';
 
 function Photos({ photos }) {
   const photoList = photos.map(url => {

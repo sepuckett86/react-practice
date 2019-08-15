@@ -1,5 +1,8 @@
 import React from 'react';
 import PhotoAlbum from './PhotoAlbum';
+import Header from './Header';
+import Footer from './Footer';
+import './App.css';
 
 export default function App() {
   const photos = [
@@ -8,5 +11,11 @@ export default function App() {
     'https://cdn.pixabay.com/photo/2015/04/20/13/25/sloth-731297_1280.jpg'
   ];
 
-  return <PhotoAlbum title="Sloths" photos={photos}/>;
+  return (
+    <>
+    <Header/>
+    <PhotoAlbum title="Sloths" photos={photos}/>
+    <Footer/>
+    </>
+  );
 }
