@@ -3,7 +3,7 @@ import './Header.css';
 
 function Header() {
   return (
-    <header>My Futurama Quotes</header>
+    <header>My Rick and Morty Characters</header>
   );
 }
 
