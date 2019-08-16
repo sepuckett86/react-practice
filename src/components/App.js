@@ -1,21 +1,45 @@
-import React from 'react';
-import PhotoAlbum from './PhotoAlbum';
+import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import WaterDisplay from './WaterDisplay';
+import WaterInput from './WaterInput';
 import './App.css';
 
-export default function App() {
-  const photos = [
-    'https://cdn.pixabay.com/photo/2018/08/28/21/01/panama-3638527_1280.jpg',
-    'https://cdn.pixabay.com/photo/2014/07/31/22/40/sloth-407042_1280.jpg',
-    'https://cdn.pixabay.com/photo/2015/04/20/13/25/sloth-731297_1280.jpg'
-  ];
+export default class App extends Component {
+  state = {
+    water: 0,
+    input: ''
+  }
 
-  return (
-    <>
-    <Header/>
-    <PhotoAlbum title="Sloths" photos={photos}/>
-    <Footer/>
-    </>
-  );
+  updateWater = (event) => {
+    event.preventDefault();
+    if(parseInt(this.state.input)) {
+      this.setState(state => {
+        return {
+          water: state.water + parseInt(state.input),
+          input: ''
+        };
+      });
+    }
+  }
+
+  updateInput = ({ target }) => {
+    this.setState({
+      [target.name]: target.value
+    });
+  }
+
+  render() {
+    return (
+      <>
+      <Header/>
+      <WaterInput 
+        updateWater={this.updateWater} 
+        updateInput={this.updateInput}
+        input={this.state.input} />
+      <WaterDisplay water={this.state.water}/>
+      <Footer/>
+      </>
+    );
+  }
 }
