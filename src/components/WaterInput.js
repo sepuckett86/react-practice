@@ -16,7 +16,10 @@ function WaterInput({ handleWaterSubmit, handleInputChange, input }) {
 WaterInput.propTypes = {
   handleWaterSubmit: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  input: PropTypes.number.isRequired
+  input: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ])
 };
 
 export default WaterInput;
