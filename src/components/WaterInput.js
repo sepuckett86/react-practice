@@ -2,20 +2,20 @@ import React from 'react';
 import './WaterInput.css';
 import PropTypes from 'prop-types';
 
-function WaterInput({ updateWater, updateInput, input }) {
+function WaterInput({ handleWaterSubmit, handleInputChange, input }) {
   return (
-    <form onSubmit={updateWater}>
+    <form onSubmit={handleWaterSubmit}>
       <label>
           Water to Add in Ounces: {' '}
-        <input onChange={updateInput} name="input" type="text" value={input}></input>
+        <input onChange={handleInputChange} name="input" type="text" value={input}></input>
       </label>      <button>Submit</button>
     </form>
   );
 }
 
 WaterInput.propTypes = {
-  updateWater: PropTypes.func.isRequired,
-  updateInput: PropTypes.func.isRequired,
+  handleWaterSubmit: PropTypes.func.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
   input: PropTypes.number.isRequired
 };
 

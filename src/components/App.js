@@ -11,7 +11,7 @@ export default class App extends Component {
     input: ''
   }
 
-  updateWater = (event) => {
+  handleWaterSubmit = (event) => {
     event.preventDefault();
     if(parseInt(this.state.input)) {
       this.setState(state => {
@@ -23,7 +23,7 @@ export default class App extends Component {
     }
   }
 
-  updateInput = ({ target }) => {
+  handleInputChange = ({ target }) => {
     this.setState({
       [target.name]: target.value
     });
@@ -34,8 +34,8 @@ export default class App extends Component {
       <>
       <Header/>
       <WaterInput 
-        updateWater={this.updateWater} 
-        updateInput={this.updateInput}
+        handleWaterSubmit={this.handleWaterSubmit} 
+        handleInputChange={this.handleInputChange}
         input={this.state.input} />
       <WaterDisplay water={this.state.water}/>
       <Footer/>
