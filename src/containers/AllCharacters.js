@@ -1,31 +1,62 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Characters from '../components/Characters';
-import { getCharacters } from '../services/rickAndMortyApi';
+import { getCharacters, getPages } from '../services/rickAndMortyApi';
 
 export default class TopQuotes extends Component {
-  static propTypes = {
-    page: PropTypes.number
-  }
-
-  static defaultProps = {
-    page: 1
-  }
-
   state = {
-    characters: [],
+    characters: [{
+      name: 'Toxic Rick',
+      status: 'Dead',
+      species: 'Humanoid',
+      image: 'https://rickandmortyapi.com/api/character/avatar/361.jpeg'
+    }],
+    page: 10,
+    totalPages: 0
   }
   
   componentDidMount() {
-    getCharacters(this.props.page)
+    getPages()
+      .then(pages => {
+        this.setState({ totalPages: pages });
+      })
+      .then(() => getCharacters(this.state.page))
       .then(characters => {
         this.setState({ characters });
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.page !== this.state.page) {
+      console.log(prevState.page, this.state.page);
+      getCharacters(this.state.page)
+        .then(characters => {
+          this.setState({ characters });
+        });
+    }
+  }
+
+  onClick = ({ target }) => {
+    if(target.name === 'next') {
+      this.setState(state => {
+        return {
+          page: state.page + 1
+        };
+      });
+    }
+    if(target.name === 'previous') {
+      this.setState(state => {
+        return {
+          page: state.page - 1
+        };
+      });
+    }
+  }
+
   render() {
     return (
       <>
+        {this.state.page > 1 ? <button name="previous" onClick={this.onClick}>Previous Page</button> : null}
+        {this.state.page < this.state.totalPages ? <button name="next" onClick={this.onClick}>Next Page</button> : null}
         <Characters characters={this.state.characters} />
       </>
     );

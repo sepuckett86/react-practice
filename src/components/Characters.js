@@ -5,7 +5,7 @@ import './Characters.css';
 
 function Characters({ characters }) {
   const characterList = characters.map(character => (
-    <li key={character.name}>
+    <li key={`${character.name}+${character.species}+${character.status}+${character.image}`}>
       <Character character={character} />
     </li>
   ));
