@@ -10,7 +10,7 @@ export default class TopQuotes extends Component {
       species: 'Humanoid',
       image: 'https://rickandmortyapi.com/api/character/avatar/361.jpeg'
     }],
-    page: 10,
+    page: 1,
     totalPages: 0
   }
   
