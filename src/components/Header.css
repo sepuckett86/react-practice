@@ -1,6 +1,18 @@
-header {
-  padding: 0.5rem;
-  background-color: black;
+ul {
   color: white;
   text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111111;
+}
+
+li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
 }
