@@ -3,7 +3,7 @@ import './Header.css';
 
 function Header() {
   return (
-    <header>My Water Tracker</header>
+    <header>React Router Practice</header>
   );
 }
 
