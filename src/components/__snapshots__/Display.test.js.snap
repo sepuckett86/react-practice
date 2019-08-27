@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display component renders Display 1`] = `
+<Fragment>
+  <p>
+    hi
+  </p>
+  <p>
+    bye
+  </p>
+</Fragment>
+`;

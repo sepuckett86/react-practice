@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls component renders Controls 1`] = `
+<Fragment>
+  <label>
+    Title: 
+    <input
+      name="title"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+  <label>
+    Subtitle: 
+    <input
+      name="subtitle"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+</Fragment>
+`;
