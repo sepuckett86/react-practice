@@ -5,11 +5,6 @@ const mapStateToProps = state => ({
   videoUrls: getImageVideoUrls(state)
 });
 
-const mapDispatchToProps = dispatch => {
-
-}
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(VideoImages);
