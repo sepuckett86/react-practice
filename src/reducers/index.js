@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux';
+import videoFormReducer from './videoFormReducer';
+import videoReducer from './videoReducer';
 
 export default combineReducers({
-  reducer: 'me'
+  form: videoFormReducer,
+  videos: videoReducer
 });
