@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 require('dotenv').config();
 const Sentiment = require('sentiment');
 const googleTrends = require('google-trends-api');
@@ -82,6 +84,7 @@ const newsBattleGoogle = (article1, article2) => {
 };
 
 const newsBattleSharedCount = async(article1, article2) => {
+  // eslint-disable-next-line no-undef
   const API_KEY = process.env.SHARED_COUNT_API_KEY;
   const URL_1 = article1.url;
   const URL_2 = article2.url;
@@ -105,8 +108,7 @@ const newsBattleSharedCount = async(article1, article2) => {
 };
 
 
-// newsBattleSentiment(article1, article2);
-
-// newsBattleGoogle(article1, article2);
-
+// Test out functions below
+newsBattleSentiment(article1, article2);
+newsBattleGoogle(article1, article2);
 newsBattleSharedCount(article1, article2);
