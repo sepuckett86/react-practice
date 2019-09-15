@@ -1,5 +1,7 @@
+require('dotenv').config();
 const Sentiment = require('sentiment');
 const googleTrends = require('google-trends-api');
+const superagent = require('superagent');
 
 const article1 = {
   'source': {
@@ -79,6 +81,32 @@ const newsBattleGoogle = (article1, article2) => {
   });
 };
 
-newsBattleSentiment(article1, article2);
+const newsBattleSharedCount = async(article1, article2) => {
+  const API_KEY = process.env.SHARED_COUNT_API_KEY;
+  const URL_1 = article1.url;
+  const URL_2 = article2.url;
 
-newsBattleGoogle(article1, article2);
+  const result1 = await superagent
+    .get(`https://api.sharedcount.com/v1.0/?url=${URL_1}&apikey=${API_KEY}`)
+    .then(res => {
+      if(!res.ok) throw 'Could not get result';
+      return res.body;
+    });
+
+  const result2 = await superagent
+    .get(`https://api.sharedcount.com/v1.0/?url=${URL_2}&apikey=${API_KEY}`)
+    .then(res => {
+      if(!res.ok) throw 'Could not get result';
+      return res.body;
+    });
+
+  console.log('result 1: ', result1);
+  console.log('result 2: ', result2);
+};
+
+
+// newsBattleSentiment(article1, article2);
+
+// newsBattleGoogle(article1, article2);
+
+newsBattleSharedCount(article1, article2);
