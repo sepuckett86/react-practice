@@ -25,8 +25,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "google-trends-api": "^4.9.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "sentiment": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
