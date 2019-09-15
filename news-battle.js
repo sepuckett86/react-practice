@@ -1,6 +1,5 @@
 const Sentiment = require('sentiment');
 const googleTrends = require('google-trends-api');
- 
 
 const article1 = {
   'source': {
@@ -30,7 +29,7 @@ const article2 = {
   'content': 'Georgias defense executed its first shutout of the 2019 season in a 55-0 victory over Arkansas State on Saturday. It marked Georgia\'s first shutout since it beat Austin Peay 45-0 in the first game of last season. \r\nThe Bulldogs dominated on the defensive side… [+2638 chars]'
 };
 
-const newsBattle = (article1, article2) => {
+const newsBattleSentiment = (article1, article2) => {
   // sentiment
   const sentiment1 = new Sentiment();
   const result1 = sentiment1.analyze(article1.title);
@@ -38,6 +37,22 @@ const newsBattle = (article1, article2) => {
   const sentiment2 = new Sentiment();
   const result2 = sentiment2.analyze(article2.title);
   console.log('sentiment article2', result2);
+
+  let winnerByScore;
+  if(result1.score > result2.score) winnerByScore = 'article1';
+  if(result1.score < result2.score) winnerByScore = 'article2';
+  if(result1.score === result2.score) winnerByScore = 'tie';
+  console.log('sentiment winnerByScore', winnerByScore);
+
+  let winnerByComparative;
+  if(result1.comparative > result2.comparative) winnerByComparative = 'article1';
+  if(result1.comparative < result2.comparative) winnerByComparative = 'article2';
+  if(result1.comparative === result2.comparative) winnerByComparative = 'tie';
+  console.log('sentiment winnerByComparative', winnerByComparative);
+
+};
+
+const newsBattleGoogle = (article1, article2) => {
   // google-trending-api
   googleTrends.dailyTrends({ geo: 'US' }, function(err, results) {
     if(err) {
@@ -47,10 +62,23 @@ const newsBattle = (article1, article2) => {
       const keywords = trendingSearches.map(search => {
         return search.title.query;
       });
-      console.log(keywords);
+      // console.log(keywords);
+      let article1match = 0;
+      let article2match = 0;
+      keywords.forEach(keyword => {
+        if(article1.title.includes(keyword)) {
+          article1match++;
+        }
+        if(article2.title.includes(keyword)) {
+          article2match++;
+        }
+      });
+      console.log('Google trends match article 1', article1match);
+      console.log('Google trends match article 2', article2match);
     }
   });
-  // facebook shares
 };
 
-newsBattle(article1, article2);
+newsBattleSentiment(article1, article2);
+
+newsBattleGoogle(article1, article2);
