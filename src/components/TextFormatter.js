@@ -7,18 +7,28 @@ class TextFormatter extends Component {
     text: '',
     font: 'Ghost',
     formattedText: '',
-    color: 'black',
-    fonts: []
+    color: '#000000',
+    fonts: ['Ghost']
   };
 
   componentDidMount() {
-    fetch('../fonts.txt')
-      .then(res => res.text())
+    fetch('./src/fonts.txt')
+      .then(res => {
+        if(res.status !== 404) {
+          return res.text();
+        } else {
+          this.setState({ fonts: ['Ghost'] });
+          console.log('status 404 fonts not found');
+        }
+      })
       .then(res => {
         const fonts = res.split(',');
+        const formattedDefault = this.formatText('Text Here', 'Ghost');
         this.setState({ 
           fonts,
-          font: fonts[0]
+          font: fonts[0],
+          text: 'Text Here',
+          formattedText: formattedDefault
         });
       })
       .catch(err => {
