@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <footer>By Susan</footer>
+    <footer>By Susan. Text formatted by <a href="https://www.npmjs.com/package/figlet">figlet</a>.</footer>
   );
 }
 

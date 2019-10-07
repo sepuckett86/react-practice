@@ -17,7 +17,6 @@ class TextFormatter extends Component {
         if(res.status !== 404) {
           return res.text();
         } else {
-          this.setState({ fonts: ['Ghost'] });
           console.log('status 404 fonts not found');
         }
       })
@@ -26,13 +25,11 @@ class TextFormatter extends Component {
         const formattedDefault = this.formatText('Text Here', 'Ghost');
         this.setState({ 
           fonts,
-          font: fonts[0],
           text: 'Text Here',
           formattedText: formattedDefault
         });
       })
       .catch(err => {
-        this.setState({ fonts: ['Ghost'] });
         console.log(err);
       });
   }

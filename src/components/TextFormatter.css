@@ -1,9 +1,15 @@
 .TextFormatter {
   input {
-    font-size: 30px;
+    font-size: 24px;
+    border-radius: 5px;
+    margin: 10px;
   }
   form {
     text-align: center;
-    margin: 1em;
+    margin: 10px;
+  }
+  select {
+    margin: 10px;
+    font-size: 16px;
   }
 }
